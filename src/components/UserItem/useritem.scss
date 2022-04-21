@@ -1,0 +1,20 @@
+.userItem {
+  margin-bottom: 10px;
+  width: 623px;
+  height: 66px;
+  background-color: #ececec;
+  cursor: pointer;
+  .img {
+    width: 52px;
+    height: 50px;
+    background-color: #333;
+    background-image: url("./1.png");
+    margin-left: 8px;
+    border-radius: 50%;
+  }
+  .username {
+    margin-left: 10px;
+    font-size: 24px;
+    font-weight: 500;
+  }
+}
