@@ -1,27 +1,22 @@
 import React from 'react'
 import UserItem from '../UserItem/UserItem'
 import "./userlist.scss"
+import imgData from "./dummyAvatars.json"
+import Loader from '../Loader/Loader'
 
-const Loader = () => {
-    return (
-        <>
-            <h1>Loader</h1>
-            <h1>Loader</h1>
-            <h1>Loader</h1>
-        </>
-    )
-}
-
-const Userlist = ({ data, onUserSelect }) => {
+const Userlist = ({ data, onUserSelect, isLoading, errorMessage }) => {
     return (
         <div className='userList'>
             <h4 className='title text-center'>USERS LIST</h4>
             <div className='content d-flex flex-column align-items-center justify-content-center'>
                 {data.id === undefined ? data.map((user) => {
                     return (
-                        <UserItem key={user.id} userData={user} onUserSelect={onUserSelect} />
+                        <UserItem key={user.id} userData={user} onUserSelect={onUserSelect} avatar={imgData[user.id - 1].img} />
                     )
-                }) : <Loader />}
+                }) : ''}
+                {isLoading ? <Loader /> : ''}
+                {errorMessage && <div className="error">{errorMessage}</div>}
+
             </div>
         </div>
     )
